@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
-# use mawk by default
+# use mawk by default if it exists
 # will be changed to gawk if -g option is used
-cmd='mawk'
+if command -v mawk &> /dev/null
+then
+   cmd='mawk'
+else
+   cmd='gawk'
+fi
+
+
 
 # similar to grep's -F option
 # treats the input field separator(IFS) literally
